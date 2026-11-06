@@ -99,7 +99,7 @@ def payload_for(event, category='unknown', detail='Ověř dostupnost v detailu a
     start = parse_date(event['start'])
     end = parse_date(event['end']) if event.get('end') else None
     def fmt(dt):
-        return dt.astimezone(TZ).strftime('%d. %m. %Y v %H:%M')
+        return dt.astimezone(TZ).strftime('%d.%m.%Y • %H:%M')
     fields = [{'name': 'Začátek — český čas', 'value': fmt(start)},
               {'name': 'Odpočet', 'value': f'<t:{int(start.timestamp())}:R>'}]
     if end:
